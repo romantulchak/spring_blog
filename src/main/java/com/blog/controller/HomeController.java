@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -55,6 +56,14 @@ public class HomeController {
     }
 
 
+    @GetMapping("/details/{name}/{id}")
+    public String details(@PathVariable long id, @PathVariable String name, Model model){
+        Post post =  postService.getByIdAndName(id, name);
+        model.addAttribute("post", post);
+
+        return "post/details";
+
+    }
 
     @GetMapping("/createPost")
     public String createPost(){

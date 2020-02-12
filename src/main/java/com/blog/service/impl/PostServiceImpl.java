@@ -38,7 +38,18 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = postRepository.findAllByOrderByIdDesc();
         return posts;
     }
+    @Override
+    public Post getByIdAndName (long id, String name){
+        Post post = postRepository.findByIdAndName(id, name);
+        if (post !=null){
+            return post;
+        }else {
 
+        }
+
+        return null;
+
+    }
     @Override
     public List<Post> getByName(String name) {
         Post post = postRepository.findByName(name);
