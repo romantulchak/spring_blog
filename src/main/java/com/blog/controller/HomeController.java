@@ -2,12 +2,19 @@ package com.blog.controller;
 
 
 import com.blog.model.Post;
+import com.blog.model.User;
 import com.blog.repository.PostRepository;
 import com.blog.service.PostService;
+import com.blog.service.UserService;
 import com.blog.service.impl.PostServiceImpl;
+import com.blog.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.core.Local;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +31,13 @@ import java.util.UUID;
 
 @Controller
 public class HomeController {
-    @Autowired
     private PostService postService;
+    private UserServiceImpl userService;
+    @Autowired
+    public HomeController(PostService postService, UserServiceImpl userService){
+        this.postService = postService;
+        this.userService = userService;
+    }
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -50,7 +62,11 @@ public class HomeController {
     }
 
     @PostMapping("/addPost")
-    public RedirectView addPost(@RequestParam String name, @RequestParam String text, @RequestParam("image")MultipartFile image) throws IOException {
+    public RedirectView addPost(@RequestParam String name, @RequestParam String text, @RequestParam("image")MultipartFile image, @AuthenticationPrincipal org.springframework.security.core.userdetails.User userName) throws IOException {
+
+
+        User user = userService.findByUsername(userName.getUsername());
+
         if (image !=null){
             File file = new File(uploadPath);
             if (!file.exists()){
@@ -61,7 +77,8 @@ public class HomeController {
             String resultFileName = uuidd + "." + image.getOriginalFilename();
 
             image.transferTo(new File(uploadPath + "/" + resultFileName));
-            Post post = new Post(name, text, resultFileName);
+            Post post = new Post(name, text, resultFileName, user
+            );
             postService.addPost(post);
         }
 

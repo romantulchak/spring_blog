@@ -37,6 +37,10 @@ public class Post {
         this.text = text;
     }
 
+    @ManyToOne
+    @JoinColumn(name ="user_id", nullable = false)
+    private User user;
+
 
     public LocalDate getDate(){
         return this.date;
@@ -47,11 +51,18 @@ public class Post {
     public Post(){
 
     }
-    public Post(String name, String text, String fileName){
+    public Post(String name, String text, String fileName, User user){
         this.name = name;
         this.text = text;
         this.date = LocalDate.now();
         this.fileName = fileName;
+        this.user = user;
 
+    }
+    public void setUser(User user){
+        this.user = user;
+    }
+    public User getUser(){
+        return this.user;
     }
 }

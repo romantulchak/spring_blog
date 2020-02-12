@@ -1119,172 +1119,145 @@
     <table id="282" parent="2" name="user_role"/>
     <table id="283" parent="2" name="usr"/>
     <table id="284" parent="3" name="hibernate_sequence"/>
-    <table id="285" parent="3" name="post"/>
-    <table id="286" parent="3" name="user_role"/>
-    <table id="287" parent="3" name="usr"/>
-    <column id="288" parent="280" name="next_val">
+    <table id="285" parent="3" name="user_role"/>
+    <table id="286" parent="3" name="usr"/>
+    <column id="287" parent="280" name="next_val">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="281" name="id">
+    <column id="288" parent="281" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="281" name="data">
+    <column id="289" parent="281" name="data">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="281" name="name">
+    <column id="290" parent="281" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="281" name="text">
+    <column id="291" parent="281" name="text">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="293" parent="281" name="PRIMARY">
+    <key id="292" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="294" parent="282" name="user_id">
+    <column id="293" parent="282" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="282" name="roles">
+    <column id="294" parent="282" name="roles">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="296" parent="282" name="FKfpm8swft53ulq2hl11yplpr5">
+    <index id="295" parent="282" name="FKfpm8swft53ulq2hl11yplpr5">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="297" parent="282" name="FKfpm8swft53ulq2hl11yplpr5">
+    <foreign-key id="296" parent="282" name="FKfpm8swft53ulq2hl11yplpr5">
       <ColNames>user_id</ColNames>
       <RefTableName>usr</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="298" parent="283" name="id">
+    <column id="297" parent="283" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="283" name="is_active">
+    <column id="298" parent="283" name="is_active">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="283" name="login">
+    <column id="299" parent="283" name="login">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="283" name="password">
+    <column id="300" parent="283" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="302" parent="283" name="PRIMARY">
+    <key id="301" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="284" name="next_val">
+    <column id="302" parent="284" name="next_val">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="285" name="id">
+    <column id="303" parent="285" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="285" name="name">
+    <column id="304" parent="285" name="roles">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="285" name="text">
-      <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="307" parent="285" name="date">
-      <Position>4</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="308" parent="285" name="file_name">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="309" parent="285" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="310" parent="286" name="user_id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="311" parent="286" name="roles">
-      <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="312" parent="286" name="FKfpm8swft53ulq2hl11yplpr5">
+    <index id="305" parent="285" name="FKfpm8swft53ulq2hl11yplpr5">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="313" parent="286" name="FKfpm8swft53ulq2hl11yplpr5">
+    <foreign-key id="306" parent="285" name="FKfpm8swft53ulq2hl11yplpr5">
       <ColNames>user_id</ColNames>
       <RefTableName>usr</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="314" parent="287" name="id">
+    <column id="307" parent="286" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="287" name="active">
+    <column id="308" parent="286" name="active">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="287" name="age">
+    <column id="309" parent="286" name="age">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="287" name="password">
+    <column id="310" parent="286" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="287" name="username">
+    <column id="311" parent="286" name="username">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="319" parent="287" name="PRIMARY">
+    <column id="312" parent="286" name="email">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="313" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

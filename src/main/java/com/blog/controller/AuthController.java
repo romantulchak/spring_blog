@@ -7,6 +7,7 @@ import com.blog.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
@@ -30,14 +31,10 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public RedirectView addUser(@RequestParam String username, @RequestParam String password, @RequestParam int age){
+    public RedirectView addUser(@ModelAttribute(value = "user") User user){
 
         //User userFromDb = userServiceImpl.
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setAge(age);
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         boolean d = userServiceImpl.addUser(user);
@@ -49,6 +46,11 @@ public class AuthController {
 
 
 
+    }
+
+    @GetMapping("/out")
+    public String logout(){
+        return "auth/logout";
     }
 
 

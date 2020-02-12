@@ -1,8 +1,12 @@
 package com.blog.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,6 +24,16 @@ public class User {
     private int age;
     private boolean active;
 
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+
+
+
+
+    @Email
+    private String email;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name="user_role", joinColumns = @JoinColumn(name = "user_id"))
@@ -73,5 +87,21 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    private String getEmail(){
+        return this.email;
+    }
+
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public void setPosts(List<Post>posts){
+        this.posts = posts;
+    }
+
+    public List<Post> getPosts(){
+        return this.posts;
     }
 }
