@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+<nav th:fragment="navbar__nav" class="navbar">
+    <div class="navbar__logo">Blog</div>
+    <ul class="navbar__ul">
+        <li><a href="">Login</a></li>
+        <li><a href="">Registration</a></li>
+        <li><a th:href="@{/createPost/}">Create Post</a></li>
+    </ul>
+</nav>
+
+
+</body>
+</html>

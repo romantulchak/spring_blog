@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+
+<nav th:fragment="navbar__nav" class="navbar">
+    <div class="navbar__logo"><a th:href="@{/}">Blog</a></div>
+    <ul sec:authorize="isAuthenticated()" class="navbar__ul">
+        <form th:action="@{/logout}" method="post">
+            <input value="Logout" type="submit">
+        </form>
+        <li><a th:href="@{/createPost}">Create Post</a></li>
+    </ul>
+    <ul class="navbar__ul" sec:authorize="isAnonymous()">
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/registration}">Registration</a></li>
+    </ul>
+</nav>
+
+
+</body>
+</html>

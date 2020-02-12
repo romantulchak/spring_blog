@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ua" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+<div th:replace="fragments/nav :: navbar__nav"></div>
+
+
+    <form th:action="@{/addPost}" method="post" enctype="multipart/form-data">
+
+        <div>
+            <h2>Name</h2>
+            <input type="text" name="name" >
+        </div>
+        <div>
+            <h2>Text</h2>
+            <input type="text" name="text" >
+        </div>
+        <div>
+            <h2>Image</h2>
+            <input type="file" name="image">
+        </div>
+        <div>
+            <input type="submit" value="Send" >
+        </div>
+
+
+    </form>
+
+
+
+<div th:replace ="fragments/footer :: footer"></div>
+</body>
+</html>

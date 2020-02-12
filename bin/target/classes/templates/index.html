@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html th:fragment="layout" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+    <div th:replace="fragments/nav :: navbar__nav"></div>
+
+    <div th:if="${posts.size() == 0}">
+        <h1>Not records</h1>
+    </div>
+
+    <form th:action="@{/filter}" method="post">
+        <h3>Name</h3>
+        <input type="text" name="name" maxlength="25" required>
+        <input type="submit" value="Search">
+    </form>
+    <hr>
+
+    <div class="card" th:each="post : ${posts}">
+        <hr>
+        <h3 th:text="${post.name}"></h3>
+        <h3 th:text="${post.text}"></h3>
+        <h4 th:text="${post.date}"></h4>
+        <div>
+            <img th:src="@{'/img/' + ${post.fileName}}" alt="">
+        </div>
+    </div>
+
+    <div th:replace ="fragments/footer :: footer"></div>
+
+</body>
+</html>
